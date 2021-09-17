@@ -65,6 +65,18 @@ function getDelugeTorrents() {
     }));
 }
 
+function writeToInflux(seriesName, values, tags, callback) {
+    console.log("seriesName = ", seriesName);
+    console.log("values = ", values);
+    console.log("tags = ", tags);
+    return influxClient.writePoints([{
+            measurement: seriesName,
+            fields: values,
+            tags: tags
+        }], callback)
+}
+
+/*
 function writeToInflux(seriesName, values, tags) {
     return influxClient.writeMeasurement(seriesName, [
         {
@@ -73,6 +85,7 @@ function writeToInflux(seriesName, values, tags) {
         }
     ]);
 }
+*/
 
 function onAuthDeluge(response) {
     log(`${new Date()}: Deluge Token Saved Successfully`);
