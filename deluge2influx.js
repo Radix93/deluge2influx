@@ -77,7 +77,7 @@ function writeToInflux(seriesName, values, tags) {
 function onAuthDeluge(response) {
     log(`${new Date()}: Deluge Token Saved Successfully`);
 
-    authCookie = JSON.stringify(response.headers['set-cookie']).slice(2,50);
+    authCookie = JSON.stringify(response.headers['set-cookie']).slice(2,82);
 }
 
 function onGetDelugeTorrents(response) {
