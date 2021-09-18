@@ -125,7 +125,6 @@ function onGetDelugeTorrents(response) {
         torrentsByState[torrent.state].uploaded += torrent.total_uploaded;
 
         let value = {
-            name: torrent.name,
             progress: torrent.progress,
             size: torrent.total_size,
             ratio: torrent.ratio,
@@ -134,6 +133,7 @@ function onGetDelugeTorrents(response) {
         };
 
         let tags = {
+            name: torrent.name,
             state: torrent.state,
             tracker: torrent.tracker_host
         };
